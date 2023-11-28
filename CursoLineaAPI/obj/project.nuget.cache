@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UU35KvjhsewyH437w7Sm0PgETGu5v35Ond3GbGNoTy887vaRmymsUwf361AZEc3u4z0n95EqhpwKgh+Fex1BMA==",
+  "dgSpecHash": "79yG1xFgXx1MDUjvrVrh2/OsQ1ZaJlTDGPD93uaYIVVDFk3hKYuAxTnkEkwasRDrNAni86VqE9P1RhKdnZ789g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\Sudamericana-software-.net\\Modulo 3 - .NET API\\Sesion Practica\\CursoLineaAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
+  "projectFilePath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\GitHub\\CursoLinea.NetCoreAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Giancarlo Naranjo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Giancarlo Naranjo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

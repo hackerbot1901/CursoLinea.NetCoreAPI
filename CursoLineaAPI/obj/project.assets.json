@@ -4438,11 +4438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Giancarlo Naranjo\\Desktop\\Sudamericana-software-.net\\Modulo 3 - .NET API\\Sesion Practica\\CursoLineaAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Giancarlo Naranjo\\Desktop\\GitHub\\CursoLinea.NetCoreAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
       "projectName": "CursoLineaAPI",
-      "projectPath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\Sudamericana-software-.net\\Modulo 3 - .NET API\\Sesion Practica\\CursoLineaAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
+      "projectPath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\GitHub\\CursoLinea.NetCoreAPI\\CursoLineaAPI\\CursoLineaAPI.csproj",
       "packagesPath": "C:\\Users\\Giancarlo Naranjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\Sudamericana-software-.net\\Modulo 3 - .NET API\\Sesion Practica\\CursoLineaAPI\\CursoLineaAPI\\obj\\",
+      "outputPath": "C:\\Users\\Giancarlo Naranjo\\Desktop\\GitHub\\CursoLinea.NetCoreAPI\\CursoLineaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\Giancarlo Naranjo\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
