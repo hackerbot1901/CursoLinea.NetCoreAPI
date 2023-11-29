@@ -38,6 +38,29 @@ namespace CursoLineaAPI.Controllers
             }
         }
 
+        [HttpGet("obtener")]
+        public IActionResult ObtenerCurso([FromQuery] int idCurso)
+        {
+            try
+            {
+                var curso = DAOFactory.GetFactory().GetCursoDAO().Read(idCurso);
+
+                if (curso == null)
+                {
+                    return NotFound(new { message = "Curso no encontrado" });
+                }
+
+                var cursoSerializado = new { curso, message = "Curso obtenido exitosamente" };
+
+                return Ok(cursoSerializado);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Se produjo un error al obtener el curso", error = ex.Message });
+            }
+        }
+
+
 
         [HttpGet("listado")]
         public dynamic ListarCursos()
@@ -58,7 +81,7 @@ namespace CursoLineaAPI.Controllers
         {
             try
             {
-       
+
                 var cursoEnBaseDeDatos = DAOFactory.GetFactory().GetCursoDAO().Read(id);
 
                 if (cursoEnBaseDeDatos == null)
@@ -74,7 +97,7 @@ namespace CursoLineaAPI.Controllers
                     curso = cursoEnBaseDeDatos,
                     message = "Curso actualizado exitosamente"
                 });
-                
+
             }
             catch (DbUpdateException ex)
             {
@@ -87,7 +110,7 @@ namespace CursoLineaAPI.Controllers
         }
 
         [HttpPut("asignarProfesor")]
-        public dynamic AsignarProfesorCurso([FromQuery]int idCurso, Profesor profesor)
+        public dynamic AsignarProfesorCurso([FromQuery] int idCurso, Profesor profesor)
         {
             try
             {
@@ -109,11 +132,11 @@ namespace CursoLineaAPI.Controllers
                 {
                     if (cursoEnBaseDeDatos.ProfesorId != null)
                     {
-                        return BadRequest(new { message = "El curso ya tiene un profesor asignado" }); 
+                        return BadRequest(new { message = "El curso ya tiene un profesor asignado" });
                     }
                     cursoEnBaseDeDatos.ProfesorId = profesorEnBaseDeDatos.ProfesorId;
                     DAOFactory.GetFactory().GetCursoDAO().Update(cursoEnBaseDeDatos);
-                    
+
                 }
                 return Ok(new { cursoEnBaseDeDatos, message = "Profesor asignado correctamente" });
             }
