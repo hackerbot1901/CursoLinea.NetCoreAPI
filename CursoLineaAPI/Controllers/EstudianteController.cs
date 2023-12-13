@@ -14,7 +14,6 @@ namespace CursoLineaAPI.Controllers
         {
             try
             {
-                /*Caso cuando existe el curso*/
                 var cursoSeleccionado = DAOFactory.GetFactory().GetCursoDAO().Read(idCurso);
                 if (cursoSeleccionado == null)
                 {

@@ -14,26 +14,17 @@ namespace CursoLineaAPI.Controllers
         {
             try
             {
-                //1. Obtener únicamente los parámetros de interés para la creación
-                var nombre = curso.Nombre;
-                var descripcion = curso.Descripcion;
-                var duracionHoras = curso.DuracionHoras;
                 Curso nuevoCurso = new()
                 {
-                    Nombre = nombre,
-                    Descripcion = descripcion,
-                    DuracionHoras = duracionHoras
+                    Nombre = curso.Nombre,
+                    Descripcion = curso.Descripcion,
+                    DuracionHoras = curso.DuracionHoras
                 };
-
-                //2. Enviar al modelo
                 DAOFactory.GetFactory().GetCursoDAO().Create(nuevoCurso);
-
-                //3. Respuesta
                 return Ok(new { message = "Curso agregado exitosamente", curso = nuevoCurso });
             }
             catch (Exception ex)
             {
-                // Manejar la excepción, puedes registrarla, devolver un mensaje genérico o personalizado, etc.
                 return StatusCode(500, new { message = "Error al agregar el curso", error = ex.Message });
             }
         }
@@ -44,23 +35,17 @@ namespace CursoLineaAPI.Controllers
             try
             {
                 var curso = DAOFactory.GetFactory().GetCursoDAO().Read(idCurso);
-
                 if (curso == null)
                 {
                     return NotFound(new { message = "Curso no encontrado" });
                 }
-
-                var cursoSerializado = new { curso, message = "Curso obtenido exitosamente" };
-
-                return Ok(cursoSerializado);
+                return Ok(new { curso, message = "Curso obtenido exitosamente" });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Se produjo un error al obtener el curso", error = ex.Message });
             }
         }
-
-
 
         [HttpGet("listado")]
         public dynamic ListarCursos()
@@ -77,13 +62,11 @@ namespace CursoLineaAPI.Controllers
         }
 
         [HttpPut("editar")]
-        public dynamic EditarCursoExistente([FromQuery] int id, Curso cursoActualizado)
+        public dynamic EditarCursoExistente([FromQuery] int idCurso, Curso cursoActualizado)
         {
             try
             {
-
-                var cursoEnBaseDeDatos = DAOFactory.GetFactory().GetCursoDAO().Read(id);
-
+                var cursoEnBaseDeDatos = DAOFactory.GetFactory().GetCursoDAO().Read(idCurso);
                 if (cursoEnBaseDeDatos == null)
                 {
                     return NotFound(new { message = "Curso no encontrado" });
@@ -114,10 +97,8 @@ namespace CursoLineaAPI.Controllers
         {
             try
             {
-                /*Buscar el curso que exista*/
                 var cursoEnBaseDeDatos = DAOFactory.GetFactory().GetCursoDAO().Read(idCurso);
                 var profesorEnBaseDeDatos = DAOFactory.GetFactory().GetEFProfesorDAO().Read(profesor.ProfesorId);
-
                 {
                     if (cursoEnBaseDeDatos == null)
                     {
@@ -128,7 +109,6 @@ namespace CursoLineaAPI.Controllers
                         return NotFound(new { message = "Profesor no encontrado" });
                     }
                 }
-                /*Si la propiedad es nula quiere decir que no tiene asignado un profesor al Curso*/
                 {
                     if (cursoEnBaseDeDatos.ProfesorId != null)
                     {
